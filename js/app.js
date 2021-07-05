@@ -12,6 +12,44 @@ document.querySelector('.score').textContent = score;
 let highscore = 0;
 document.querySelector('.highscore').textContent = highscore;
 
+document.querySelector('.retry').addEventListener('click', function(){
+	score = gameRange;
+	document.querySelector('.score').textContent = gameRange;
+	
+	secretNumber = Math.trunc(Math.random() * gameRange ) + 1;
+	
+	document.querySelector('.message').textContent = 'Start guessing...';
+	
+	document.querySelector('.guessNumber').value = ' ';
+	
+	document.querySelector('.secretNumber').textContent = '?';
+	//document.querySelector('.secretNumber').textContent = secretNumber;
+	
+	document.querySelector('.container').style.backgroundColor = '#D1FAE5';
+	
+	document.querySelector('.secretNumber').style.backgroundColor = '#6EE7B7';
+	document.querySelector('.secretNumber').style.width = '5rem';
+	
+	document.querySelector('.retry').style.backgroundColor = '#A7F3D0';
+	document.querySelector('.retry').textContent = 'Retry!';
+	
+	document.querySelector('.check').style.backgroundColor = '#A7F3D0';
+	document.querySelector('.check').style.color = '#000000';
+	document.querySelector('.check').addEventListener('mouseenter', function() {
+		document.querySelector('.check').style.color = '#ECFDF5';
+	});
+	document.querySelector('.check').addEventListener('mouseleave', function() {
+		document.querySelector('.check').style.color = '#000000';
+	});
+	document.querySelector('.check').style.cursor = 'pointer';
+	document.querySelector('.check').disabled = false;
+	
+	document.querySelector('.guessNumber').style.cursor = 'pointer';
+	document.querySelector('.guessNumber').disabled = false;
+	
+	
+});
+
 document.querySelector('.check').addEventListener('click', function () {
     const guessNumber = Number(document.querySelector('.guessNumber').value);
 
